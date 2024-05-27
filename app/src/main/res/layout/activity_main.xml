@@ -15,7 +15,7 @@
         android:layout_marginStart="@dimen/default_margin"
         >
 
-        <com.google.android.material.imageview.ShapeableImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_heart1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/heart" />
 
-        <com.google.android.material.imageview.ShapeableImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_heart2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
             android:layout_marginHorizontal="10dp"
             app:srcCompat="@drawable/heart" />
 
-        <com.google.android.material.imageview.ShapeableImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_heart3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -55,8 +55,20 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         />
+    <MultiAutoCompleteTextView
+        android:id="@+id/main_LBL_countryName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/Main_IMG_flag"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:textSize="@dimen/score_size"
+        tools:text="Country Name"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        />
 
-    <com.google.android.material.imageview.ShapeableImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/Main_IMG_flag"
         android:layout_width="@dimen/flag_width"
         android:layout_height="@dimen/flag_height"
