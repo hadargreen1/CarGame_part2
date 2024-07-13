@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.amitb.a23a_10357_hw2'
+    namespace 'com.example.classone'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.amitb.a23a_10357_hw2"
+        applicationId "com.example.classone"
         minSdk 26
         //noinspection OldTargetApi
         targetSdk 34

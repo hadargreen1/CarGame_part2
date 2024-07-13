@@ -9,10 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.amitb.classone.R;
-import com.amitb.classone.model.Player;
-import com.amitb.classone.model.Records;
-import com.amitb.classone.utils.MySPv;
+import com.example.classone.R;
+import com.example.classone.model.Player;
+import com.example.classone.model.Records;
+import com.example.classone.utils.MySPv;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
