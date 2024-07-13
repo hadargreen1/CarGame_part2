@@ -1,4 +1,4 @@
-package com.example.classone.utils;
+package com.ex2.CarGame_part2.utils;
 
 import android.content.Context;
 import android.hardware.Sensor;
@@ -6,8 +6,8 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
-import com.example.classone.GameActivity;
-import com.example.classone.interfaces.StepCallBack;
+import com.ex2.CarGame_part2.GameActivity;
+import com.ex2.CarGame_part2.interfaces.StepCallBack;
 
 
 

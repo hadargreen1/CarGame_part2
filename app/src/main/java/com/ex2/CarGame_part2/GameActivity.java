@@ -1,4 +1,4 @@
-package com.example.classone;
+package com.ex2.CarGame_part2;
 
 import android.Manifest;
 import android.content.Context;
@@ -18,18 +18,18 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.example.classone.interfaces.StepCallBack;
-import com.example.classone.model.Player;
-import com.example.classone.model.Records;
-import com.example.classone.utils.CrashSound;
-import com.example.classone.utils.MySPv;
-import com.example.classone.utils.StepDetector;
-import com.example.classone.utils.SuccessSound;
+import com.ex2.CarGame_part2.interfaces.StepCallBack;
+import com.ex2.CarGame_part2.model.Player;
+import com.ex2.CarGame_part2.model.Records;
+import com.ex2.CarGame_part2.utils.CrashSound;
+import com.ex2.CarGame_part2.utils.MySPv;
+import com.ex2.CarGame_part2.utils.StepDetector;
+import com.ex2.CarGame_part2.utils.SuccessSound;
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.gson.Gson;
-import com.example.classone.R;
+import com.ex2.CarGame_part2.R;
 
 import java.util.Random;
 import java.util.Timer;

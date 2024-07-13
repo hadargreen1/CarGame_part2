@@ -1,4 +1,4 @@
-package com.example.classone;
+package com.ex2.CarGame_part2;
 
 import org.junit.Test;
 

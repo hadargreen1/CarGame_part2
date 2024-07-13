@@ -1,4 +1,4 @@
-package com.example.classone.utils;
+package com.ex2.CarGame_part2.utils;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.classone.R;
-import com.example.classone.interfaces.RecordCallBack;
-import com.example.classone.model.Player;
+import com.ex2.CarGame_part2.R;
+import com.ex2.CarGame_part2.interfaces.RecordCallBack;
+import com.ex2.CarGame_part2.model.Player;
 import com.google.android.material.textview.MaterialTextView;
 
 import java.util.ArrayList;

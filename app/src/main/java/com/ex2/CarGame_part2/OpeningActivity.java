@@ -1,4 +1,4 @@
-package com.example.classone;
+package com.ex2.CarGame_part2;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +16,7 @@ import androidx.appcompat.widget.AppCompatImageView;
 import com.bumptech.glide.Glide;
 import com.google.android.material.button.MaterialButton;
 
-import com.example.classone.R;
+import com.ex2.CarGame_part2.R;
 
 public class OpeningActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.classone.views;
+package com.ex2.CarGame_part2.views;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,10 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.classone.R;
-import com.example.classone.model.Player;
-import com.example.classone.model.Records;
-import com.example.classone.utils.MySPv;
+import com.ex2.CarGame_part2.R;
+import com.ex2.CarGame_part2.model.Player;
+import com.ex2.CarGame_part2.model.Records;
+import com.ex2.CarGame_part2.utils.MySPv;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;

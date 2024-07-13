@@ -1,4 +1,4 @@
-package com.example.classone.views;
+package com.ex2.CarGame_part2.views;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,11 +12,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.classone.R;
-import com.example.classone.interfaces.UserProtocolCallBack;
-import com.example.classone.model.Records;
-import com.example.classone.utils.MySPv;
-import com.example.classone.utils.PlayerAdapter;
+import com.ex2.CarGame_part2.R;
+import com.ex2.CarGame_part2.interfaces.UserProtocolCallBack;
+import com.ex2.CarGame_part2.model.Records;
+import com.ex2.CarGame_part2.utils.MySPv;
+import com.ex2.CarGame_part2.utils.PlayerAdapter;
 import com.google.gson.Gson;
 
 public class ListFragment extends Fragment {

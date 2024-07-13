@@ -1,4 +1,4 @@
-package com.example.classone.utils;
+package com.ex2.CarGame_part2.utils;
 
 import android.app.Application;
 

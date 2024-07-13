@@ -1,14 +1,14 @@
-package com.example.classone;
+package com.ex2.CarGame_part2;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.classone.R;
-import com.example.classone.interfaces.UserProtocolCallBack;
-import com.example.classone.views.ListFragment;
-import com.example.classone.views.MapFragment;
+import com.ex2.CarGame_part2.R;
+import com.ex2.CarGame_part2.interfaces.UserProtocolCallBack;
+import com.ex2.CarGame_part2.views.ListFragment;
+import com.ex2.CarGame_part2.views.MapFragment;
 import com.google.android.material.imageview.ShapeableImageView;
 
 public class FinishingActivity extends AppCompatActivity {

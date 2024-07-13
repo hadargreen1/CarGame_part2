@@ -1,4 +1,4 @@
-package com.example.classone.model;
+package com.ex2.CarGame_part2.model;
 
 public class Player {
     private String name;
