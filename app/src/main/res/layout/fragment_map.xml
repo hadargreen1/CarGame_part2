@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.MapFragment">
+    tools:context="com.example.classone.views.MapFragment">
 
     <fragment
         android:id="@+id/google_map"

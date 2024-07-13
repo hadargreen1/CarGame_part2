@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FinishingActivity">
+    tools:context="com.example.classone.FinishingActivity">
 
 
 
@@ -31,6 +31,7 @@
         </RelativeLayout>
 
 
+
         <FrameLayout
             android:id="@+id/upper_frame"
             android:layout_width="match_parent"
@@ -44,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="4"
-            android:background=""/>
+            android:background="@color/asphalt_gray"/>
 
 
 

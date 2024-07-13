@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/asphalt_gray"
-    tools:context=".OpeningActivity">
+    tools:context="com.example.classone.OpeningActivity">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/opening_gif"
@@ -91,19 +91,22 @@
             android:layout_width="160dp"
             android:layout_height="match_parent"
             android:textColor="@color/black"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:hint="Enter your name" />
+
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/BTN_enterText"
             android:layout_width="92dp"
-            android:textSize="12dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="10dp"
+            android:text="Enter"
+            android:textSize="12sp"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:backgroundTint="@color/red_300"
             app:cornerRadius="16dp"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="10dp"
-            android:text="Enter"/>
+            android:contentDescription="Submit name" />
 
     </LinearLayout>
 
