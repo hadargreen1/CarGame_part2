@@ -1,73 +1,56 @@
 package com.Ex.CarGame_part2.utils;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.Ex.CarGame_part2.R;
-import com.Ex.CarGame_part2.interfaces.RecordCallBack;
 import com.Ex.CarGame_part2.model.Player;
-import com.google.android.material.textview.MaterialTextView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerViewHolder> {
 
-    private final ArrayList<Player> players;
-    private RecordCallBack recordCallBack;
+    private List<Player> playerList;
 
-    public PlayerAdapter(Context context, ArrayList<Player> players){
-        this.players = players;
-    }
-
-    public void setRecordCallBack(RecordCallBack rcb){
-        this.recordCallBack = rcb;
-    }
-
-    public class PlayerViewHolder extends RecyclerView.ViewHolder{
-        private final MaterialTextView name;
-        private final MaterialTextView score;
-        private final MaterialTextView latitude;
-        private final MaterialTextView longitude;
-
-        public PlayerViewHolder(@NonNull View itemView) {
-            super(itemView);
-            name = itemView.findViewById(R.id.player_LBL_name);
-            score = itemView.findViewById(R.id.player_LBL_score);
-            latitude = itemView.findViewById(R.id.player_LBL_latitude);
-            longitude = itemView.findViewById(R.id.player_LBL_longitude);
-            itemView.setOnClickListener(v -> recordCallBack.itemClicked(getItem(getAdapterPosition()),getAdapterPosition()));
-        }
-    }
-
-    private Player getItem(int position) {
-        return players.get(position);
+    public PlayerAdapter(List<Player> playerList) {
+        this.playerList = playerList;
     }
 
     @NonNull
     @Override
     public PlayerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.player_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_player, parent, false);
         return new PlayerViewHolder(view);
     }
 
-    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull PlayerViewHolder holder, int position) {
-        Player player = getItem(position);
-        holder.name.setText(player.getName());
-        holder.score.setText(player.getScore() + " points");
-        holder.latitude.setText(player.getLatitude() + "");
-        holder.longitude.setText(player.getLongitude() + "");
+        Player player = playerList.get(position);
+        holder.nameTextView.setText(player.getName());
+        holder.scoreTextView.setText(String.valueOf(player.getScore()));
+        holder.locationTextView.setText(player.getLatitude() + ", " + player.getLongitude());
     }
 
     @Override
     public int getItemCount() {
-        return players == null? 0: players.size();
+        return playerList.size();
+    }
+
+    static class PlayerViewHolder extends RecyclerView.ViewHolder {
+        TextView nameTextView;
+        TextView scoreTextView;
+        TextView locationTextView;
+
+        public PlayerViewHolder(@NonNull View itemView) {
+            super(itemView);
+            nameTextView = itemView.findViewById(R.id.player_name);
+            scoreTextView = itemView.findViewById(R.id.player_score);
+            locationTextView = itemView.findViewById(R.id.player_location);
+        }
     }
 }

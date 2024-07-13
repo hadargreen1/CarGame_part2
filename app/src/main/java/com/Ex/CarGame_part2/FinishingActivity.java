@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import com.Ex.CarGame_part2.interfaces.UserProtocolCallBack;
 import com.Ex.CarGame_part2.views.ListFragment;
 import com.Ex.CarGame_part2.views.MapFragment;
@@ -19,7 +18,7 @@ public class FinishingActivity extends AppCompatActivity {
     UserProtocolCallBack callBack = new UserProtocolCallBack() {
         @Override
         public void sendLocation(double latitude, double longitude) {
-            mapFragment.zoom(latitude,longitude);
+            mapFragment.zoom(latitude, longitude);
         }
     };
 
@@ -29,8 +28,8 @@ public class FinishingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_finishing);
         initFragments();
         findViews();
-        returnIMG.setOnClickListener(v->{
-            Intent openingIntent = new Intent(this,OpeningActivity.class);
+        returnIMG.setOnClickListener(v -> {
+            Intent openingIntent = new Intent(this, OpeningActivity.class);
             startActivity(openingIntent);
             finish();
         });
@@ -41,10 +40,10 @@ public class FinishingActivity extends AppCompatActivity {
         listFragment.setCallback(callBack);
         mapFragment = new MapFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.upper_frame, listFragment).commit();
-        getSupportFragmentManager().beginTransaction().add(R.id.lower_frame,mapFragment).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.lower_frame, mapFragment).commit();
     }
 
-    public void findViews(){
+    private void findViews() {
         returnIMG = findViewById(R.id.IMG_return);
     }
 }
