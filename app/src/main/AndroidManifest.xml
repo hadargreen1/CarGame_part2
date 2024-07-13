@@ -46,8 +46,9 @@
         <activity
             android:name="com.example.classone.GameActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"
-            android:exported="true">
+            android:screenOrientation="fullSensor"
+            android:exported="true"
+            tools:ignore="DiscouragedApi">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
