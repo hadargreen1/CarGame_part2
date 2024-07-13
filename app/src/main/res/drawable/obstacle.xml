@@ -2,17 +2,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:viewportWidth="1024"
     android:viewportHeight="1024"
-    android:width="256dp"
-    android:height="256dp"
+    android:width="300dp"
+    android:height="300dp"
     tools:ignore="VectorRaster">
     <!-- First Facet -->
     <path
         android:pathData="M512,200 L392,300 L512,400 L632,300 Z"
-        android:fillColor="#8e8e8e"/>
+        android:fillColor="#070707"/>
     <!-- Second Facet -->
     <path
         android:pathData="M392,300 L272,400 L392,500 L512,400 Z"
-        android:fillColor="#a9a9a9"/>
+        android:fillColor="#FF070707"/>
     <!-- Third Facet -->
     <path
         android:pathData="M512,400 L392,500 L512,600 L632,500 Z"
@@ -20,7 +20,7 @@
     <!-- Fourth Facet -->
     <path
         android:pathData="M632,300 L512,400 L632,500 L752,400 Z"
-        android:fillColor="#b3b3b3"/>
+        android:fillColor="#FF070707"/>
     <!-- Fifth Facet -->
     <path
         android:pathData="M512,600 L392,700 L512,800 L632,700 Z"
@@ -36,21 +36,21 @@
     <!-- Eighth Facet -->
     <path
         android:pathData="M752,400 L632,500 L752,600 L872,500 Z"
-        android:fillColor="#c4c4c4"/>
+        android:fillColor="#FF070707"/>
     <!-- Additional Facets for More Detail -->
     <path
         android:pathData="M272,400 L152,500 L272,600 L392,500 Z"
         android:fillColor="#bcbcbc"/>
     <path
         android:pathData="M872,500 L752,600 L872,700 L992,600 Z"
-        android:fillColor="#d3d3d3"/>
+        android:fillColor="#FF070707"/>
     <path
         android:pathData="M392,700 L272,800 L392,900 L512,800 Z"
-        android:fillColor="#7a7a7a"/>
+        android:fillColor="#FF070707"/>
     <path
         android:pathData="M632,700 L512,800 L632,900 L752,800 Z"
         android:fillColor="#939393"/>
     <path
         android:pathData="M512,800 L392,900 L512,1000 L632,900 Z"
-        android:fillColor="#6c6c6c"/>
+        android:fillColor="#FF070707"/>
 </vector>

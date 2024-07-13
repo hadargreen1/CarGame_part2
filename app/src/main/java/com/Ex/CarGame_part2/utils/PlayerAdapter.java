@@ -1,4 +1,4 @@
-package com.Ex.CarGame_part2.utils;
+package com.Ex.CarGame_part2.views;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,7 +41,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerView
         return playerList.size();
     }
 
-    static class PlayerViewHolder extends RecyclerView.ViewHolder {
+    public static class PlayerViewHolder extends RecyclerView.ViewHolder {
         TextView nameTextView;
         TextView scoreTextView;
         TextView locationTextView;

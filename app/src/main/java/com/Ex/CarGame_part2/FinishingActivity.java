@@ -37,7 +37,7 @@ public class FinishingActivity extends AppCompatActivity {
 
     private void initFragments() {
         ListFragment listFragment = new ListFragment();
-        listFragment.setCallback(callBack);
+        listFragment.setCallback();
         mapFragment = new MapFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.upper_frame, listFragment).commit();
         getSupportFragmentManager().beginTransaction().add(R.id.lower_frame, mapFragment).commit();
