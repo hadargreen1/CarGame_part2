@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/asphalt_gray"
-    tools:context="com.ex2.CarGame_part2.OpeningActivity">
+    android:background="@color/light_gray"
+    tools:context="com.Ex.CarGame_part2.OpeningActivity">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/opening_gif"
-        android:layout_width="175dp"
+        android:layout_width="320dp"
         android:layout_height="175dp"
         android:layout_centerInParent="true"
         android:layout_above="@id/opening_txt_header"/>
@@ -20,9 +20,9 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:fontFamily="sans-serif-medium"
-        android:text="Obstacle Race Game 2.0"
+        android:text="@string/ride_or_die"
         android:textColor="@color/black"
-        android:textSize="28sp" />
+        android:textSize="35sp" />
 
 
     <ToggleButton
@@ -32,11 +32,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/opening_txt_header"
         android:layout_centerInParent="true"
-        android:backgroundTint="@color/red_300"
+        android:backgroundTint="@color/black"
         android:textColor="@color/white"
-        android:textOff="slow"
-        android:textOn="fast"
+        android:textOff="@string/slow"
+        android:textOn="@string/fast"
         android:textSize="16sp"
+        app:cornerRadius="8dp"
         android:translationZ="5dp" />
     <LinearLayout
         android:id="@+id/opening_options"
@@ -52,10 +53,10 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:textColor="@color/white"
-            app:cornerRadius="16dp"
+            app:cornerRadius="8dp"
             android:enabled="false"
             android:allowClickWhenDisabled="false"
-            android:backgroundTint="@color/red_300"
+            android:backgroundTint="@color/black"
             android:text="Arrows" />
 
         <View
@@ -66,12 +67,11 @@
             android:id="@+id/opening_BTN_sensors"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:cornerRadius="16dp"
+            app:cornerRadius="8dp"
             android:enabled="false"
             android:allowClickWhenDisabled="false"
             android:textColor="@color/white"
-            android:layout_centerInParent="true"
-            android:backgroundTint="@color/red_300"
+            android:backgroundTint="@color/black"
             android:text="Sensors" />
 
     </LinearLayout>
@@ -100,13 +100,13 @@
             android:layout_width="92dp"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="10dp"
-            android:text="Enter"
+            android:text="Submitname"
             android:textSize="12sp"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:backgroundTint="@color/red_300"
-            app:cornerRadius="16dp"
-            android:contentDescription="Submit name" />
+            android:backgroundTint="@color/black"
+            app:cornerRadius="8dp"
+            android:contentDescription="@string/submit_name" />
 
     </LinearLayout>
 
@@ -114,12 +114,12 @@
         android:id="@+id/opening_BTN_records"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cornerRadius="16dp"
+        app:cornerRadius="8dp"
         android:textColor="@color/white"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="12dp"
-        android:backgroundTint="@color/red_300"
-        android:text="Top Scores" />
+        android:backgroundTint="@color/black"
+        android:text="@string/top_scores" />
 
 </RelativeLayout>

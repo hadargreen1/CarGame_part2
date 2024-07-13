@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Ride or Die</string>
+    <string name="ride_or_die">Ride or Die</string>
+    <string name="slow">slow</string>
+    <string name="fast">fast</string>
+    <string name="submit_name">Submit name</string>
+    <string name="top_scores">Top Scores</string>
 </resources>

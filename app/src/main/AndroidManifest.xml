@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.ex2.CarGame_part2">
+    package="com.Ex.CarGame_part2">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
-        android:name="com.ex2.CarGame_part2.utils.App"
+        android:name="com.Ex.CarGame_part2.utils.App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -24,14 +24,14 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDZonlq_sA7-aMsX3SWsS6CL3h8L8dBgQ4"/>
         <activity
-            android:name="com.ex2.CarGame_part2.FinishingActivity"
+            android:name="com.Ex.CarGame_part2.FinishingActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.ex2.CarGame_part2.OpeningActivity"
+            android:name="com.Ex.CarGame_part2.OpeningActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,7 +44,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name="com.ex2.CarGame_part2.GameActivity"
+            android:name="com.Ex.CarGame_part2.GameActivity"
             android:configChanges="orientation"
             android:screenOrientation="fullSensor"
             android:exported="true"

@@ -1,0 +1,10 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:viewportWidth="512"
+    android:viewportHeight="512"
+    android:width="72dp"
+    android:height="72dp">
+    <!-- Define a solid, round gold coin -->
+    <path
+        android:pathData="M256,0 C118.281,0 0,118.281 0,256 C0,393.719 118.281,512 256,512 C393.719,512 512,393.719 512,256 C512,118.281 393.719,0 256,0 Z"
+        android:fillColor="#FFD700" />
+</vector>

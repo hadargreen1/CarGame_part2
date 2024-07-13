@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.ex2.CarGame_part2'
+    namespace 'com.Ex.CarGame_part2'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.ex2.CarGame_part2"
+        applicationId "com.Ex.CarGame_part2"
         minSdk 26
         //noinspection OldTargetApi
         targetSdk 34

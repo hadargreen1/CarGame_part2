@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ex2.CarGame_part2.FinishingActivity">
+    tools:context="com.Ex.CarGame_part2.FinishingActivity">
 
 
 
@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="4"
-            android:background="@color/purple_200"/>
+            android:background="@color/yellow_400"/>
 
 
         <FrameLayout
@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="4"
-            android:background="@color/asphalt_gray"/>
+            android:background="@color/light_gray"/>
 
 
 

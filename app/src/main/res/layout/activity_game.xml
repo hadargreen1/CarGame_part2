@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context="com.ex2.CarGame_part2.GameActivity">
+    tools:context="com.Ex.CarGame_part2.GameActivity">
 
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/game_IMG_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/asphalt_gray"/>
+        android:background="@color/light_gray"/>
 
     <LinearLayout
         android:id="@+id/game_LL_top"
@@ -85,7 +85,7 @@
                     android:layout_marginBottom="12dp"
                     android:layout_marginHorizontal="12dp"
                     android:visibility="invisible"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_0_2"
@@ -95,7 +95,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_0_3"
@@ -105,7 +105,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_0_4"
@@ -115,7 +115,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_0_5"
@@ -125,7 +125,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_0_6"
@@ -135,7 +135,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_0_7"
@@ -145,7 +145,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
             </LinearLayout>
             <LinearLayout
@@ -164,7 +164,7 @@
                     android:layout_marginTop="36dp"
                     android:layout_marginBottom="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_1_2"
@@ -174,7 +174,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_1_3"
@@ -184,7 +184,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_1_4"
@@ -194,7 +194,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_1_5"
@@ -204,7 +204,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_1_6"
@@ -214,7 +214,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_1_7"
@@ -224,7 +224,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
             </LinearLayout>
             <LinearLayout
@@ -243,7 +243,7 @@
                     android:layout_marginTop="36dp"
                     android:layout_marginBottom="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_2_2"
@@ -252,7 +252,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_2_3"
@@ -261,7 +261,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin ="12dp"
-                    android:src="@drawable/traffic_cone_128" />
+                    android:src="@drawable/obstacle" />
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_2_4"
@@ -270,7 +270,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_2_5"
@@ -279,7 +279,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_2_6"
@@ -288,7 +288,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_2_7"
@@ -297,7 +297,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
             </LinearLayout>
             <LinearLayout
@@ -316,7 +316,7 @@
                     android:layout_marginTop="36dp"
                     android:layout_marginBottom="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_3_2"
@@ -325,7 +325,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_3_3"
@@ -334,7 +334,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/traffic_cone_128" />
+                    android:src="@drawable/obstacle" />
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_3_4"
@@ -343,7 +343,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_3_5"
@@ -352,7 +352,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_3_6"
@@ -361,7 +361,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_3_7"
@@ -370,7 +370,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
             </LinearLayout>
             <LinearLayout
@@ -389,7 +389,7 @@
                     android:layout_marginTop="36dp"
                     android:layout_marginBottom="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_4_2"
@@ -398,7 +398,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_4_3"
@@ -407,7 +407,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/traffic_cone_128" />
+                    android:src="@drawable/obstacle" />
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_4_4"
@@ -416,7 +416,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_4_5"
@@ -425,7 +425,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_4_6"
@@ -434,7 +434,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_cone_4_7"
@@ -443,7 +443,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/traffic_cone_128"/>
+                    android:src="@drawable/obstacle"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -466,7 +466,7 @@
                     android:layout_marginBottom="12dp"
                     android:layout_marginHorizontal="12dp"
                     android:visibility="invisible"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_0_2"
@@ -476,7 +476,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_0_3"
@@ -486,7 +486,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_0_4"
@@ -496,7 +496,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_0_5"
@@ -506,7 +506,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_0_6"
@@ -516,7 +516,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_0_7"
@@ -526,7 +526,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
             </LinearLayout>
             <LinearLayout
@@ -544,7 +544,7 @@
                     android:layout_marginTop="36dp"
                     android:layout_marginBottom="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_1_2"
@@ -554,7 +554,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_1_3"
@@ -564,7 +564,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_1_4"
@@ -574,7 +574,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_1_5"
@@ -584,7 +584,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_1_6"
@@ -594,7 +594,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_1_7"
@@ -604,7 +604,7 @@
                     android:layout_weight="1"
                     android:layout_marginVertical="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
             </LinearLayout>
             <LinearLayout
@@ -622,7 +622,7 @@
                     android:layout_marginTop="36dp"
                     android:layout_marginBottom="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_2_2"
@@ -631,7 +631,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_2_3"
@@ -640,7 +640,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin ="12dp"
-                    android:src="@drawable/wrench" />
+                    android:src="@drawable/goldcoin" />
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_2_4"
@@ -649,7 +649,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_2_5"
@@ -658,7 +658,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_2_6"
@@ -667,7 +667,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_2_7"
@@ -676,7 +676,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
             </LinearLayout>
             <LinearLayout
@@ -694,7 +694,7 @@
                     android:layout_marginTop="36dp"
                     android:layout_marginBottom="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_3_2"
@@ -703,7 +703,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_3_3"
@@ -712,7 +712,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/wrench" />
+                    android:src="@drawable/goldcoin" />
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_3_4"
@@ -721,7 +721,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_3_5"
@@ -729,7 +729,7 @@
                     android:layout_width="56dp"
                     android:layout_height="56dp"
                     android:layout_margin="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_3_6"
@@ -738,7 +738,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_3_7"
@@ -747,7 +747,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
             </LinearLayout>
             <LinearLayout
@@ -765,7 +765,7 @@
                     android:layout_marginTop="36dp"
                     android:layout_marginBottom="12dp"
                     android:layout_marginHorizontal="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_4_2"
@@ -774,7 +774,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_4_3"
@@ -783,7 +783,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/wrench" />
+                    android:src="@drawable/goldcoin" />
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_4_4"
@@ -792,7 +792,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_4_5"
@@ -801,7 +801,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_4_6"
@@ -810,7 +810,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_wrench_4_7"
@@ -819,7 +819,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_margin="12dp"
-                    android:src="@drawable/wrench"/>
+                    android:src="@drawable/goldcoin"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -899,7 +899,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="24dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/red_300"
+        android:backgroundTint="@color/blue_300"
         app:icon="@drawable/ic_baseline_arrow_left_24"
         app:iconSize="48dp"
         tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
@@ -916,7 +916,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/red_300"
+        android:backgroundTint="@color/blue_300"
         app:icon="@drawable/ic_baseline_arrow_right_24"
         app:iconSize="48dp"
         tools:ignore="SpeakableTextPresentCheck" />
