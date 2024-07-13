@@ -1,29 +1,925 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="com.example.classone.GameActivity">
 
-    <application
-        android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.ClassOne"
-        tools:targetApi="31">
-        <activity
-            android:name=".ScoreActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/game_IMG_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/asphalt_gray"/>
 
-</manifest>
+    <LinearLayout
+        android:id="@+id/game_LL_top"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/game_LL_hearts"
+            android:layout_width="108dp"
+            android:layout_height="40dp"
+            android:layout_margin = "16dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/game_IMG_heart_1"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:src="@drawable/heart"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/game_IMG_heart_2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:src="@drawable/heart"
+                android:layout_marginStart="5dp"
+                android:scaleType="fitCenter"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/game_IMG_heart_3"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:src="@drawable/heart"
+                android:layout_marginStart="5dp"
+                android:scaleType="fitCenter"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/game_RL_obstacles"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/game_LL_top">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="52dp">
+            <LinearLayout
+                android:id="@+id/game_VIEW_lane0"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_0_1"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:visibility="invisible"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_0_2"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_0_3"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_0_4"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_0_5"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_0_6"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_0_7"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/game_VIEW_lane1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_1_1"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_1_2"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_1_3"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_1_4"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_1_5"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_1_6"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_1_7"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/game_VIEW_lane2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_2_1"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_2_2"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_2_3"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin ="12dp"
+                    android:src="@drawable/traffic_cone_128" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_2_4"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_2_5"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_2_6"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_2_7"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/game_VIEW_lane3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_3_1"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_3_2"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_3_3"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/traffic_cone_128" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_3_4"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_3_5"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_3_6"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_3_7"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/game_VIEW_lane4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_4_1"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_4_2"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_4_3"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/traffic_cone_128" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_4_4"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_4_5"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_4_6"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_cone_4_7"
+                    android:visibility="invisible"
+                    android:layout_width="48dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/traffic_cone_128"/>
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="48dp">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_0_1"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:visibility="invisible"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_0_2"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_0_3"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_0_4"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_0_5"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_0_6"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_0_7"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/wrench"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_1_1"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_1_2"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_1_3"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_1_4"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_1_5"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_1_6"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_1_7"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/wrench"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_2_1"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_2_2"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_2_3"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin ="12dp"
+                    android:src="@drawable/wrench" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_2_4"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_2_5"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_2_6"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_2_7"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/wrench"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_3_1"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_3_2"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_3_3"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/wrench" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_3_4"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_3_5"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_3_6"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_3_7"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/wrench"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_4_1"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_4_2"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_4_3"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/wrench" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_4_4"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_4_5"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_4_6"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/wrench"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_wrench_4_7"
+                    android:visibility="invisible"
+                    android:layout_width="56dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/wrench"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/game_RL_cars"
+        android:layout_alignBottom="@+id/game_RL_obstacles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal"
+        android:layout_marginBottom="52dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/game_IMG_car0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:src="@drawable/car_128"/>
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/game_IMG_car1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:layout_height="wrap_content"
+            android:src="@drawable/car_128"/>
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/game_IMG_car2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:visibility="visible"
+            android:layout_height="wrap_content"
+            android:src="@drawable/car_128"/>
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/game_IMG_car3"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:layout_height="wrap_content"
+            android:src="@drawable/car_128"/>
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/game_IMG_car4"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:layout_height="wrap_content"
+            android:src="@drawable/car_128"/>
+
+    </LinearLayout>
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/game_FAB_goLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/red_300"
+        app:icon="@drawable/ic_baseline_arrow_left_24"
+        app:iconSize="48dp"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/game_FAB_goRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/red_300"
+        app:icon="@drawable/ic_baseline_arrow_right_24"
+        app:iconSize="48dp"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
+</RelativeLayout>
