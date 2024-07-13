@@ -27,18 +27,13 @@ public class SuccessSound {
                 mediaPlayer.setVolume(1.0f, 1.0f);
                 mediaPlayer.start();
 
-                // Ensure resources are released when playback is complete
-                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                    @Override
-                    public void onCompletion(MediaPlayer mp) {
-                        mediaPlayer.release();
-                    }
-                });
+
+                mediaPlayer.setOnCompletionListener(mp -> mediaPlayer.release());
             }
         });
     }
 
-    // Call this method to properly shut down the ExecutorService
+
     public void cleanup() {
         executorService.shutdown();
     }

@@ -1,5 +1,6 @@
 package com.Ex.CarGame_part2.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,25 +18,22 @@ import java.util.ArrayList;
 
 public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerViewHolder> {
 
-    private Context context;
-    private ArrayList<Player> players;
+    private final ArrayList<Player> players;
     private RecordCallBack recordCallBack;
 
     public PlayerAdapter(Context context, ArrayList<Player> players){
-        this.context = context;
         this.players = players;
     }
 
-    public PlayerAdapter setRecordCallBack(RecordCallBack rcb){
+    public void setRecordCallBack(RecordCallBack rcb){
         this.recordCallBack = rcb;
-        return this;
     }
 
     public class PlayerViewHolder extends RecyclerView.ViewHolder{
-        private MaterialTextView name;
-        private MaterialTextView score;
-        private MaterialTextView latitude;
-        private MaterialTextView longitude;
+        private final MaterialTextView name;
+        private final MaterialTextView score;
+        private final MaterialTextView latitude;
+        private final MaterialTextView longitude;
 
         public PlayerViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -55,14 +53,14 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerView
     @Override
     public PlayerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.player_item,parent,false);
-        PlayerViewHolder mvh = new PlayerViewHolder(view);
-        return mvh;
+        return new PlayerViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull PlayerViewHolder holder, int position) {
         Player player = getItem(position);
-        holder.name.setText(player.getName() + "");
+        holder.name.setText(player.getName());
         holder.score.setText(player.getScore() + " points");
         holder.latitude.setText(player.getLatitude() + "");
         holder.longitude.setText(player.getLongitude() + "");

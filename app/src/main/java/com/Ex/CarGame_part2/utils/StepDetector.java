@@ -6,15 +6,13 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
-import com.Ex.CarGame_part2.GameActivity;
 import com.Ex.CarGame_part2.interfaces.StepCallBack;
 
 
-
 public class StepDetector {
-    private StepCallBack stepCallBack;
-    private SensorManager sensorManager;
-    private Sensor sensor;
+    private final StepCallBack stepCallBack;
+    private final SensorManager sensorManager;
+    private final Sensor sensor;
 
     private long timeStamp = 0;
     private SensorEventListener sensorEventListener;
@@ -24,9 +22,6 @@ public class StepDetector {
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         stepCallBack = _stepCallBack;
         initEventListener();
-    }
-
-    public StepDetector(GameActivity context, StepCallBack stepCallBack) {
     }
 
     private void initEventListener() {

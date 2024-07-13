@@ -19,7 +19,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.23A10357HW2"
-        tools:targetApi="31">
+        tools:targetApi="34">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDZonlq_sA7-aMsX3SWsS6CL3h8L8dBgQ4"/>
@@ -48,7 +48,7 @@
             android:configChanges="orientation"
             android:screenOrientation="fullSensor"
             android:exported="true"
-            tools:ignore="DiscouragedApi">
+            tools:ignore="DiscouragedApi,Instantiatable">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

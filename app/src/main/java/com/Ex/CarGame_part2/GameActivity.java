@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.app.ActivityCompat;
@@ -33,22 +34,20 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import im.delight.android.location.SimpleLocation;
-
+import android.util.Log;
 public class GameActivity extends AppCompatActivity {
 
-    public static final String KEY_SPEED = "KEY_SPEED";
-    public static final String KEY_MODE = "KEY_MODE";
-    public static final String KEY_NAME = "KEY_NAME";
-    private final int MULT = 3;
-    private double loc_latitude,loc_longitude;
+    public static final String SPEED = "KEY_SPEED";
+    public static final String MODE = "KEY_MODE";
+    public static final String NAME = "KEY_NAME";
+    private double loc_latitude, loc_longitude;
     private Vibrator v;
     private GameManager GM;
-    private CrashSound crashSound;
     private StepDetector stepDetector;
     private Toast toast;
     private ExtendedFloatingActionButton goLeft;
     private ExtendedFloatingActionButton goRight;
-    private ShapeableImageView[][] obstacle;
+    private ShapeableImageView[][] obstacles;
     private ShapeableImageView[][] coins;
     private ShapeableImageView[] Hearts;
     private ShapeableImageView[] Cars;
@@ -62,44 +61,66 @@ public class GameActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        // Request location permission
         SimpleLocation location = new SimpleLocation(this);
         requestLocationPermission(location);
+
         currentSpot = 2;
         findViews();
         initGame();
         initViews();
-        GM = new GameManager(Hearts.length);
-    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
+        GM = new GameManager(Hearts.length);
+        Log.d("GameActivity", "onCreate: GameManager initialized");
+
+        Intent previousIntent = getIntent();
+        if (previousIntent != null) {
+            String speed = previousIntent.getStringExtra(SPEED).toLowerCase();
+            String mode = previousIntent.getStringExtra(MODE).toLowerCase();
+            playerName = previousIntent.getStringExtra(NAME);
+
+            if (mode != null && speed != null) {
+                if (mode.equalsIgnoreCase("arrows")) {
+                    goLeft.setOnClickListener(view -> slideLeft());
+                    goRight.setOnClickListener(view -> slideRight());
+                    if (speed.equalsIgnoreCase("fast")) DELAY = 600;
+                } else if (mode.equalsIgnoreCase("sensors")) {
+                    initStepDetector();
+                    stepDetector.start();
+                    goLeft.setVisibility(View.INVISIBLE);
+                    goRight.setVisibility(View.INVISIBLE);
+                }
+            } else {
+                Log.e("GameActivity", "onCreate: Mode or Speed is null");
+            }
+        } else {
+            Log.e("GameActivity", "onCreate: Intent is null");
+        }
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        if (toast != null) {
-            toast.cancel();
-        }
-        if (stepDetector != null)
-            stepDetector.stop();
+        if (toast != null) toast.cancel();
+        if (stepDetector != null) stepDetector.stop();
     }
-
     private void initGame() {
         Intent previousIntent = getIntent();
-        String speed = previousIntent.getExtras().getString(KEY_SPEED).toLowerCase();
-        String mode = previousIntent.getExtras().getString(KEY_MODE).toLowerCase();
-        playerName = previousIntent.getStringExtra(KEY_NAME);
+        String speed = previousIntent.getStringExtra(SPEED).toLowerCase();
+        String mode = previousIntent.getStringExtra(MODE).toLowerCase();
+        playerName = previousIntent.getStringExtra(NAME);
+
         if (mode.equalsIgnoreCase("arrows")) {
             goLeft.setOnClickListener(view -> slideLeft());
             goRight.setOnClickListener(view -> slideRight());
-            if (speed.equalsIgnoreCase("fast"))
+            if (speed.equalsIgnoreCase("fast")) {
                 DELAY = 600;
+            }
         } else if (mode.equalsIgnoreCase("sensors")) {
             initStepDetector();
             stepDetector.start();
@@ -120,43 +141,70 @@ public class GameActivity extends AppCompatActivity {
                 slideRight();
             }
         });
+        Log.d("GameActivity", "initStepDetector: StepDetector initialized");
+    }
+
+    private void requestLocationPermission(SimpleLocation location) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 101);
+        } else {
+            saveLocation(location);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 101) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                saveLocation(new SimpleLocation(this));
+            } else {
+                Toast.makeText(this, "Location permission denied", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void saveLocation(SimpleLocation location) {
+        location.beginUpdates();
+        loc_latitude = location.getLatitude();
+        loc_longitude = location.getLongitude();
     }
 
     private void findViews() {
+        // Initialize views here
         background = findViewById(R.id.game_IMG_background);
         goLeft = findViewById(R.id.game_FAB_goLeft);
         goRight = findViewById(R.id.game_FAB_goRight);
-        ShapeableImageView[] Cars = new ShapeableImageView[]{
+        Cars = new ShapeableImageView[]{
                 findViewById(R.id.game_IMG_car0),
                 findViewById(R.id.game_IMG_car1),
                 findViewById(R.id.game_IMG_car2),
                 findViewById(R.id.game_IMG_car3),
                 findViewById(R.id.game_IMG_car4)
         };
-
-
         Hearts = new ShapeableImageView[]{
                 findViewById(R.id.game_IMG_heart_1),
                 findViewById(R.id.game_IMG_heart_2),
                 findViewById(R.id.game_IMG_heart_3)
         };
-        obstacle = new ShapeableImageView[][]{
-                {findViewById(R.id.game_cone_0_1), findViewById(R.id.game_cone_1_1), findViewById(R.id.game_cone_2_1), findViewById(R.id.game_cone_3_1), findViewById(R.id.game_cone_4_1)},
-                {findViewById(R.id.game_cone_0_2), findViewById(R.id.game_cone_1_2), findViewById(R.id.game_cone_2_2), findViewById(R.id.game_cone_3_2), findViewById(R.id.game_cone_4_2)},
-                {findViewById(R.id.game_cone_0_3), findViewById(R.id.game_cone_1_3), findViewById(R.id.game_cone_2_3), findViewById(R.id.game_cone_3_3), findViewById(R.id.game_cone_4_3)},
-                {findViewById(R.id.game_cone_0_4), findViewById(R.id.game_cone_1_4), findViewById(R.id.game_cone_2_4), findViewById(R.id.game_cone_3_4), findViewById(R.id.game_cone_4_4)},
-                {findViewById(R.id.game_cone_0_5), findViewById(R.id.game_cone_1_5), findViewById(R.id.game_cone_2_5), findViewById(R.id.game_cone_3_5), findViewById(R.id.game_cone_4_5)},
-                {findViewById(R.id.game_cone_0_6), findViewById(R.id.game_cone_1_6), findViewById(R.id.game_cone_2_6), findViewById(R.id.game_cone_3_6), findViewById(R.id.game_cone_4_6)},
-                {findViewById(R.id.game_cone_0_7), findViewById(R.id.game_cone_1_6), findViewById(R.id.game_cone_2_6), findViewById(R.id.game_cone_3_7), findViewById(R.id.game_cone_4_7)}
+        obstacles = new ShapeableImageView[][]{
+                {findViewById(R.id.game_stone_0_1), findViewById(R.id.game_stone_1_1), findViewById(R.id.game_stone_2_1), findViewById(R.id.game_stone_3_1), findViewById(R.id.game_stone_4_1)},
+                {findViewById(R.id.game_stone_0_2), findViewById(R.id.game_stone_1_2), findViewById(R.id.game_stone_2_2), findViewById(R.id.game_stone_3_2), findViewById(R.id.game_stone_4_2)},
+                {findViewById(R.id.game_stone_0_3), findViewById(R.id.game_stone_1_3), findViewById(R.id.game_stone_2_3), findViewById(R.id.game_stone_3_3), findViewById(R.id.game_stone_4_3)},
+                {findViewById(R.id.game_stone_0_4), findViewById(R.id.game_stone_1_4), findViewById(R.id.game_stone_2_4), findViewById(R.id.game_stone_3_4), findViewById(R.id.game_stone_4_4)},
+                {findViewById(R.id.game_stone_0_5), findViewById(R.id.game_stone_1_5), findViewById(R.id.game_stone_2_5), findViewById(R.id.game_stone_3_5), findViewById(R.id.game_stone_4_5)},
+                {findViewById(R.id.game_stone_0_6), findViewById(R.id.game_stone_1_6), findViewById(R.id.game_stone_2_6), findViewById(R.id.game_stone_3_6), findViewById(R.id.game_stone_4_6)},
+                {findViewById(R.id.game_stone_0_7), findViewById(R.id.game_stone_1_7), findViewById(R.id.game_stone_2_7), findViewById(R.id.game_stone_3_7), findViewById(R.id.game_stone_4_7)}
         };
         coins = new ShapeableImageView[][]{
-                {findViewById(R.id.game_wrench_0_1), findViewById(R.id.game_wrench_1_1), findViewById(R.id.game_wrench_2_1), findViewById(R.id.game_wrench_3_1), findViewById(R.id.game_wrench_4_1)},
-                {findViewById(R.id.game_wrench_0_2), findViewById(R.id.game_wrench_1_2), findViewById(R.id.game_wrench_2_2), findViewById(R.id.game_wrench_3_2), findViewById(R.id.game_wrench_4_2)},
-                {findViewById(R.id.game_wrench_0_3), findViewById(R.id.game_wrench_1_3), findViewById(R.id.game_wrench_2_3), findViewById(R.id.game_wrench_3_3), findViewById(R.id.game_wrench_4_3)},
-                {findViewById(R.id.game_wrench_0_4), findViewById(R.id.game_wrench_1_4), findViewById(R.id.game_wrench_2_4), findViewById(R.id.game_wrench_3_4), findViewById(R.id.game_wrench_4_4)},
-                {findViewById(R.id.game_wrench_0_5), findViewById(R.id.game_wrench_1_5), findViewById(R.id.game_wrench_2_5), findViewById(R.id.game_wrench_3_5), findViewById(R.id.game_wrench_4_5)},
-                {findViewById(R.id.game_wrench_0_6), findViewById(R.id.game_wrench_1_6), findViewById(R.id.game_wrench_2_6), findViewById(R.id.game_wrench_3_6), findViewById(R.id.game_wrench_4_6)},
-                {findViewById(R.id.game_wrench_0_7), findViewById(R.id.game_wrench_1_6), findViewById(R.id.game_wrench_2_6), findViewById(R.id.game_wrench_3_7), findViewById(R.id.game_wrench_4_7)}
+                {findViewById(R.id.game_coin_0_1), findViewById(R.id.game_coin_1_1), findViewById(R.id.game_coin_2_1), findViewById(R.id.game_coin_3_1), findViewById(R.id.game_coin_4_1)},
+                {findViewById(R.id.game_coin_0_2), findViewById(R.id.game_coin_1_2), findViewById(R.id.game_coin_2_2), findViewById(R.id.game_coin_3_2), findViewById(R.id.game_coin_4_2)},
+                {findViewById(R.id.game_coin_0_3), findViewById(R.id.game_coin_1_3), findViewById(R.id.game_coin_2_3), findViewById(R.id.game_coin_3_3), findViewById(R.id.game_coin_4_3)},
+                {findViewById(R.id.game_coin_0_4), findViewById(R.id.game_coin_1_4), findViewById(R.id.game_coin_2_4), findViewById(R.id.game_coin_3_4), findViewById(R.id.game_coin_4_4)},
+                {findViewById(R.id.game_coin_0_5), findViewById(R.id.game_coin_1_5), findViewById(R.id.game_coin_2_5), findViewById(R.id.game_coin_3_5), findViewById(R.id.game_coin_4_5)},
+                {findViewById(R.id.game_coin_0_6), findViewById(R.id.game_coin_1_6), findViewById(R.id.game_coin_2_6), findViewById(R.id.game_coin_3_6), findViewById(R.id.game_coin_4_6)},
+                {findViewById(R.id.game_coin_0_7), findViewById(R.id.game_coin_1_7), findViewById(R.id.game_coin_2_7), findViewById(R.id.game_coin_3_7), findViewById(R.id.game_coin_4_7)}
         };
     }
 
@@ -185,41 +233,38 @@ public class GameActivity extends AppCompatActivity {
     private void startGame() {
         startTime = System.currentTimeMillis();
         timer = new Timer();
-        timer.schedule(
-                new TimerTask() {
-                    @Override
-                    public void run() {
-                        if (!isFinish)
-                            runOnUiThread(GameActivity.this::updateConeLocation);
-                    }
-                }
-                , DELAY, DELAY);
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                if (!isFinish) runOnUiThread(GameActivity.this::updateConeLocation);
+            }
+        }, DELAY, DELAY);
     }
 
     private void updateConeLocation() {
         checkHit();
         lowerLocations();
-        initRandomCone();
+        initRandomRock();
     }
 
     private void lowerLocations() {
-        for (int i = obstacle.length - 1; i > 0; i--) {
-            for (int j = 0; j < obstacle[i].length; j++) {
-                obstacle[i][j].setVisibility(obstacle[i - 1][j].getVisibility());
+        for (int i = obstacles.length - 1; i > 0; i--) {
+            for (int j = 0; j < obstacles[i].length; j++) {
+                obstacles[i][j].setVisibility(obstacles[i - 1][j].getVisibility());
                 coins[i][j].setVisibility(coins[i - 1][j].getVisibility());
             }
         }
     }
 
-    private void initRandomCone() {
+    private void initRandomRock() {
         Random rand = new Random();
         int rnd = rand.nextInt(9);
-        for (int i = 0; i < obstacle[0].length; i++) {
-            obstacle[0][i].setVisibility(View.INVISIBLE);
+        for (int i = 0; i < obstacles[0].length; i++) {
+            obstacles[0][i].setVisibility(View.INVISIBLE);
             coins[0][i].setVisibility(View.INVISIBLE);
         }
         if (rnd < 5) {
-            obstacle[0][rnd].setVisibility(View.VISIBLE);
+            obstacles[0][rnd].setVisibility(View.VISIBLE);
         } else if (rnd > 7) {
             int rnd2 = rand.nextInt(5);
             coins[0][rnd2].setVisibility(View.VISIBLE);
@@ -227,9 +272,9 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void checkHit() {
-        if (obstacle[obstacle.length - 1][currentSpot].getVisibility() == View.VISIBLE) {
+        if (obstacles[obstacles.length - 1][currentSpot].getVisibility() == View.VISIBLE) {
             GM.updateWrong();
-            crashSound = new CrashSound(this);
+            CrashSound crashSound = new CrashSound(this);
             crashSound.playSound();
             if (GM.getWrong() != GM.getLife()) {
                 Hearts[Hearts.length - GM.getWrong()].setVisibility(View.INVISIBLE);
@@ -237,8 +282,9 @@ public class GameActivity extends AppCompatActivity {
                 openFinishScreen();
                 return;
             }
-            VibrationHelper.vibrate(v, this);
+            VibrationHelper.vibrate(v);
             Toast.makeText(this, "You just got hit!", Toast.LENGTH_SHORT).show();
+            crashSound.cleanup();
         }
         if (coins[coins.length - 1][currentSpot].getVisibility() == View.VISIBLE) {
             if (GM.getWrong() < GM.getLife() && GM.getWrong() > 0) {
@@ -247,53 +293,36 @@ public class GameActivity extends AppCompatActivity {
             SuccessSound successSound = new SuccessSound(this);
             successSound.playSound();
             GM.obtainLife();
-            Toast.makeText(this, "You just got more lives!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "+1 lives!", Toast.LENGTH_SHORT).show();
+            successSound.cleanup();
         }
     }
 
-
-
     private void openFinishScreen() {
-        //flag to stop the timer action
         isFinish = true;
         int now = (int) ((System.currentTimeMillis() - startTime) / 1000);
         timer.cancel();
-        int score = now * MULT;
+        int multiplier = 3;
+        int score = now * multiplier;
         String impGson = MySPv.getInstance().getString(MySPv.getInstance().getMyKey(), "");
-        Records recs = new Gson().fromJson(impGson,Records.class);
-        if (recs == null){
+        Records recs = new Gson().fromJson(impGson, Records.class);
+        if (recs == null) {
             recs = new Records();
         }
-        recs.getRecords().add(new Player().setName(playerName).setScore(score).setLocation(loc_latitude,loc_longitude));
+        recs.getRecords().add(new Player().setName(playerName).setScore(score).setLocation(loc_latitude, loc_longitude));
         recs.sortList();
         String expGson = new Gson().toJson(recs);
-        MySPv.getInstance().putString(MySPv.getInstance().getMyKey(),expGson);
+        MySPv.getInstance().putString(MySPv.getInstance().getMyKey(), expGson);
         Intent finishIntent = new Intent(this, FinishingActivity.class);
         startActivity(finishIntent);
         GameActivity.this.finish();
-    }
 
-    private void requestLocationPermission(SimpleLocation location) {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 101);
-        } else {
-            saveLocation(location);
-        }
-    }
-
-    private void saveLocation(SimpleLocation location) {
-        location.beginUpdates();
-        loc_latitude = location.getLatitude();
-        loc_longitude = location.getLongitude();
     }
 
     public static class VibrationHelper {
-
-        public static void vibrate(Vibrator vibrator, Context context) {
+        public static void vibrate(Vibrator vibrator) {
             VibrationEffect effect = VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE);
             vibrator.vibrate(effect);
         }
     }
-
-
 }

@@ -19,26 +19,18 @@ public class CrashSound {
     }
 
     public void playSound() {
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                MediaPlayer mediaPlayer = MediaPlayer.create(context, R.raw.crash);
-                mediaPlayer.setLooping(false);
-                mediaPlayer.setVolume(1.1f, 1.1f); // Ensure volume does not exceed 1.0 as it might not be supported
-                mediaPlayer.start();
+        executorService.execute(() -> {
+            MediaPlayer mediaPlayer = MediaPlayer.create(context, R.raw.crash);
+            mediaPlayer.setLooping(false);
+            mediaPlayer.setVolume(1.0f, 1.0f);
+            mediaPlayer.start();
 
-                // Ensure resources are released when playback is complete
-                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                    @Override
-                    public void onCompletion(MediaPlayer mp) {
-                        mediaPlayer.release();
-                    }
-                });
-            }
+
+            mediaPlayer.setOnCompletionListener(mp -> mediaPlayer.release());
         });
     }
 
-    // Call this method to properly shut down the ExecutorService
+
     public void cleanup() {
         executorService.shutdown();
     }
