@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/asphalt_gray"
+    tools:context=".OpeningActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/opening_gif"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_centerInParent="true"
+        android:layout_above="@id/opening_txt_header"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/opening_txt_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="sans-serif-medium"
+        android:text="Obstacle Race Game 2.0"
+        android:textColor="@color/black"
+        android:textSize="28sp" />
+
+
+    <ToggleButton
+        android:id="@+id/opening_toggle_speed"
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/opening_txt_header"
+        android:layout_centerInParent="true"
+        android:backgroundTint="@color/red_300"
+        android:textColor="@color/white"
+        android:textOff="slow"
+        android:textOn="fast"
+        android:textSize="16sp"
+        android:translationZ="5dp" />
+    <LinearLayout
+        android:id="@+id/opening_options"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/opening_toggle_speed">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/opening_BTN_arrows"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            app:cornerRadius="16dp"
+            android:enabled="false"
+            android:allowClickWhenDisabled="false"
+            android:backgroundTint="@color/red_300"
+            android:text="Arrows" />
+
+        <View
+            android:layout_width="66dp"
+            android:layout_height="match_parent"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/opening_BTN_sensors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cornerRadius="16dp"
+            android:enabled="false"
+            android:allowClickWhenDisabled="false"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:backgroundTint="@color/red_300"
+            android:text="Sensors" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LL_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/opening_options"
+        android:paddingHorizontal="42dp">
+
+        <EditText
+            android:id="@+id/ET_name"
+            android:layout_width="160dp"
+            android:layout_height="match_parent"
+            android:textColor="@color/black"
+            android:textAlignment="center"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/BTN_enterText"
+            android:layout_width="92dp"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/red_300"
+            app:cornerRadius="16dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="10dp"
+            android:text="Enter"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/opening_BTN_records"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cornerRadius="16dp"
+        android:textColor="@color/white"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="12dp"
+        android:backgroundTint="@color/red_300"
+        android:text="Top Scores" />
+
+</RelativeLayout>

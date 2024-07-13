@@ -1,5 +1,3 @@
 <resources>
-    <string name="app_name">classOne</string>
-    <string name="yes">YES</string>
-    <string name="no">NO</string>
+    <string name="app_name">Obstacle Race 2.0</string>
 </resources>

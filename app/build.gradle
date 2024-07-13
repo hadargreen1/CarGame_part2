@@ -1,0 +1,47 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.amitb.a23a_10357_hw2'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.amitb.a23a_10357_hw2"
+        minSdk 26
+        //noinspection OldTargetApi
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+                targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation libs.appcompat.v151
+    implementation libs.material.v170
+    implementation libs.android.simplelocation
+    implementation libs.gson
+    implementation libs.constraintlayout
+    implementation libs.play.services.maps
+    implementation libs.play.services.location
+    testImplementation libs.junit
+    androidTestImplementation libs.junit.v113
+    androidTestImplementation libs.espresso.core.v340
+
+    //Glide:
+    implementation libs.glide
+    annotationProcessor libs.compiler
+}
